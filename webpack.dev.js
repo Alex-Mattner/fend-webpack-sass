@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+//const sass = requrie('sass')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
@@ -14,7 +15,12 @@ module.exports = {
                 test: '/\.js$/',
                 exclude: /node_modules/,
                 loader: "babel-loader"
-            }
+            },
+	    
+	    {
+		test: /\.scss$/,
+		use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+	    }
         ]
     },
     plugins: [
